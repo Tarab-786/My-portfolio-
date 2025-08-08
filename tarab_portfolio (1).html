@@ -1,0 +1,275 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarab Tausif | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-dark: linear-gradient(to right, #1a1a2e, #16213e);
+      --bg-light: #f5f5f5;
+      --text-dark: #ffffff;
+      --text-light: #1a1a2e;
+      --primary: #c084fc;
+      --secondary: #80d0c7;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    .light-mode {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      animation: slideDown 1s ease-out;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      padding: 5rem 2rem;
+      text-align: center;
+      animation: slideDown 1s ease-out;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 1rem auto;
+    }
+
+    .cta {
+      margin-top: 2rem;
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .cta:hover {
+      transform: scale(1.05);
+      background: #a855f7;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .section:nth-of-type(even) h2 {
+      animation: slideRight 1s ease-out;
+    }
+
+    .section:nth-of-type(odd) h2 {
+      animation: slideLeft 1s ease-out;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .skills-category {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1rem;
+      transition: transform 0.3s, background 0.3s;
+      perspective: 1000px;
+    }
+
+    .card:hover {
+      transform: rotateY(5deg) translateY(-5px);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .toggle-theme {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: none;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: inherit;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--primary);
+    }
+
+    @keyframes slideLeft {
+      from { opacity: 0; transform: translateX(-100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideRight {
+      from { opacity: 0; transform: translateX(100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-100px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"><canvas class="particles-js-canvas-el" width="1030" height="773" style="width: 100%; height: 100%;"></canvas></div>
+  <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
+
+  <header>
+    <h1>Tarab Tausif</h1>
+    <p>B.Tech CSE at M.D.U | Building, learning, and sharing ideas with intention</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#resume">Resume</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <h1>Hi, I’m Tarab</h1>
+    <p>Thanks for being here — this space reflects what I’m learning, building, and quietly creating.</p>
+    <a class="cta" href="#about">Explore More</a>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>👋 Hello, I'm Tarab — a CS student who loves tech, thoughtful design, and creating calm. I’m here to grow, build, and share what I learn.<br>
+      2nd year B.Tech CSE student at MDU<br>
+      I’m currently learning Python and content strategy, all from my phone. I explore digital tools to improve how we learn, grow, and share.
+    </p>
+  </section>
+
+  <section class="section" id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div>
+        <h3>Technical Skills</h3>
+        <div class="skills-category">
+          <div class="card">Python</div>
+          <div class="card">Prompt Engineering &amp; OpenAI</div>
+          <div class="card">Canva (Mobile)</div>
+        </div>
+      </div>
+      <div>
+        <h3>Soft Skills</h3>
+        <div class="skills-category">
+          <div class="card">Calm Communication</div>
+          <div class="card">Creative Thinking</div>
+          <div class="card">Focus &amp; Consistency</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="resume">
+    <h2>Resume / CV</h2>
+    <p>You can add your downloadable resume here later.</p>
+  </section>
+
+  <section class="section" id="achievements">
+    <h2>Achievements &amp; Certifications</h2>
+    <div class="skills-category">
+      <div class="card">
+        <h3>Prompt Engineering with OpenAI</h3>
+        <a href="https://badges.plus.columbia.edu/96d6af5b-db50-422a-885c-0249301b2be9#acc.saRY53Hm" target="_blank">View Certificate</a>
+      </div>
+      <div class="card">
+        <h3>3rd Position in Ideathon</h3>
+        <p>Recognized for innovation and collaboration.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <p>Name: Tarab Tausif<br>Email: <a href="mailto:tarabtausi@gmail.com">tarabtausi@gmail.com</a></p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/tarab-tausif-b14354346" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/tarab.notes4" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 2 },
+        move: { enable: true, speed: 0.8 }
+      }
+    });
+  </script>
+</body></html>
